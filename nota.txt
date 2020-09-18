@@ -1,0 +1,11 @@
+npm init --yes
+npm i express
+npm i mongoose
+npm i ejs (motor de plantillas)
+npm i morgan (para saber que estan pidiendo los 
+distintos usuarios)
+
+
+=== extra ===
+npm i nodemon -D
+
