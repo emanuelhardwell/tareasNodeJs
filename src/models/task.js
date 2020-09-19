@@ -6,8 +6,8 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const taskSchema = new schema({
-  title: string,
-  description: string,
+  title: String,
+  description: String,
   status: {
     type: Boolean,
     default: false,

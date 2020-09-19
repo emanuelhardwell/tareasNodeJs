@@ -3,12 +3,15 @@
 -->
 <%- include ("partials/header") %>
 
+<!-- para ver si funciona -->
+<!-- <pre> <%= tasks %> </pre> -->
+
 <div class="container">
   <div class="row">
     <!-- formulario -->
     <div class="col-md-5">
       <div class="card card-body">
-        <form action="">
+        <form action="/add" method="POST">
           <div class="form-group">
             <input
               type="text"
@@ -43,7 +46,20 @@
             <th>Operations</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <% for(let i=0; i<tasks.length; i++) {  %>
+            <tr>
+              <td><%= i+1 %></td>
+              <td><%= tasks[i].title %></td>
+              <td><%= tasks[i].description %></td>
+              <td> 
+                <a href="" class="btn btn-dark" >Done</a>
+                <a href="" class="btn btn-danger">Delete</a>
+                <a href="" class="btn btn-primary">Edit</a>
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
       </table>
     </div>
   </div>

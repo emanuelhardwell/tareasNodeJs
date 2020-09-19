@@ -9,3 +9,5 @@ distintos usuarios)
 === extra ===
 npm i nodemon -D
 
+
+npm run dev ---> correr el servidor
