@@ -28,4 +28,12 @@ router.get("/delete/:id", async (req, res) => {
   res.redirect("/");
 });
 
+router.get("/turn/:id", async (req, res) => {
+  const { id } = req.params;
+  const task = await Task.findById(id);
+  task.status = !task.status;
+  await task.save();
+  res.redirect("/");
+});
+
 module.exports = router;
