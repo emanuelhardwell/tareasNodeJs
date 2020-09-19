@@ -4,7 +4,14 @@
 const morgan = require("morgan");
 const path = require("path");
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
+
+//conecting to DataBase
+mongoose
+  .connect("mongodb://localhost/tareas")
+  .then((db) => console.log("DB conectada"))
+  .catch((err) => console.log(err));
 
 // importing routes
 const indexRoutes = require("./routes/index");
@@ -22,4 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", indexRoutes);
 
 //starting the server
-app.listen(app.get("port"), () => console.log(`Servidor en el puerto ${app.get("port")}`));
+app.listen(app.get("port"), () =>
+  console.log(`Servidor en el puerto ${app.get("port")}`)
+);
