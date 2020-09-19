@@ -57,7 +57,7 @@
                    class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark'  %>" >
                    Done</a>
                 <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
-                <a href="" class="btn btn-primary">Edit</a>
+                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-primary">Edit</a>
               </td>
             </tr>
             <% } %>

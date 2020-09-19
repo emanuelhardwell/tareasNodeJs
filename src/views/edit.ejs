@@ -1,0 +1,44 @@
+<!--  
+
+-->
+<%- include ("partials/header") %>
+
+<!-- para ver si funciona -->
+<!-- <pre> <%= task %> </pre> -->
+
+<div class="container">
+  <div class="row">
+    <!-- formulario -->
+    <div class="col-md-5">
+      <div class="card card-body">
+        <form action="/edit/<%= task._id %>" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              name="title"
+              placeholder="Inserte un titulo"
+              class="form-control"
+              autofocus
+              value="<%= task.title %>"
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              name="description"
+              cols="30"
+              placeholder="Ingrese una descripción"
+              class="form-control"
+            >
+<%= task.description %></textarea
+            >
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Actualizar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ("partials/footer") %>
