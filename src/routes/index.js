@@ -20,4 +20,12 @@ router.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
+router.get("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  await Task.remove({
+    _id: id,
+  });
+  res.redirect("/");
+});
+
 module.exports = router;
