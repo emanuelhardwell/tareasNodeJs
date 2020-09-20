@@ -9,7 +9,7 @@
 <div class="container">
   <div class="row">
     <!-- formulario -->
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div class="card card-body">
         <form action="/add" method="POST">
           <div class="form-group">
@@ -29,6 +29,17 @@
               class="form-control"
             ></textarea>
           </div>
+          <div class="form-group">
+            <label for="datefinal">Fecha de tarea:</label>
+            <input
+              type="date"
+              name="datefinal"
+              id="datefinal"
+              min="2020-09-20"
+              max="2030-12-31"
+              class="form-control"
+            />
+          </div>
           <button type="submit" class="btn btn-primary btn-block">
             Enviar
           </button>
@@ -36,14 +47,15 @@
       </div>
     </div>
     <!-- listado -->
-    <div class="col-md-7">
+    <div class="col-md-8">
       <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th>N°</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Date</th>
+            <th>Date today</th>
+            <th>Date task</th>
             <th>Operations</th>
           </tr>
         </thead>
@@ -54,15 +66,16 @@
               <td><%= tasks[i].title %></td>
               <td><%= tasks[i].description %></td>
               <td><%= tasks[i].date %></td>
+              <td><%= tasks[i].datefinal=tasks[i].fecha_final %></td>
               <td> 
                 <a href="/turn/<%= tasks[i]._id %>"
-                   class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark'  %>" >
-                   Done</a>
-                <a href="/delete/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
-                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-primary">Edit</a>
+                  class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark'  %>" >
+                  Done</a>  
+               <a href="/delete/<%= tasks[i]._id %>" class="btn                 btn-danger">Delete</a>
+               <a href="/edit/<%= tasks[i]._id %>" class="btn       btn-primary">Edit</a>
               </td>
             </tr>
-            <% } %>
+          <% } %>
         </tbody>
       </table>
     </div>
